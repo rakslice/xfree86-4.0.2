@@ -15,7 +15,7 @@
 #include "xf86OSpriv.h"
 
 #if defined(linux)
-#include <asm/ioctl.h>
+#include <sys/ioctl.h>
 #include <linux/agpgart.h>
 #elif defined(__FreeBSD__)
 #include <sys/ioctl.h>

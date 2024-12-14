@@ -56,12 +56,22 @@ struct _xf86dirent {		/* types in struct dirent/direct: */
 };
 typedef struct _xf86dirent XF86DIRENT;
 
+#if 0
+/* the original ones for newer linux */
 typedef unsigned long xf86size_t;
 typedef signed long xf86ssize_t;
 typedef unsigned long xf86dev_t;
 typedef unsigned int xf86mode_t;
 typedef unsigned int xf86uid_t;
 typedef unsigned int xf86gid_t;
+#endif
+
+typedef unsigned int xf86size_t;
+typedef int xf86ssize_t;
+typedef unsigned short xf86dev_t;
+typedef unsigned short xf86mode_t;
+typedef unsigned short xf86uid_t;
+typedef unsigned short xf86gid_t;
 
 struct xf86stat {
     xf86dev_t st_rdev;	/* This is incomplete */

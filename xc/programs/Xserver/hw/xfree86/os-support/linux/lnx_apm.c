@@ -7,7 +7,9 @@
 #define XF86_OS_PRIVS
 #include "xf86_OSproc.h"
 #include "lnx.h"
+#if 0
 #include <linux/apm_bios.h>
+#endif
 #include <unistd.h>
 #include <sys/ioctl.h>
 #include <sys/types.h>
@@ -26,6 +28,9 @@
 
 static void lnxCloseAPM(void);
 static pointer APMihPtr = NULL;
+
+#if 0
+
 
 static struct {
     apm_event_t apmLinux;
@@ -90,14 +95,18 @@ lnxPMConfirmEventToOs(int fd, pmEvent event)
     switch (event) {
     case XF86_APM_SYS_STANDBY:
     case XF86_APM_USER_STANDBY:
+#if 0
 	(void) ioctl( fd, APM_IOC_STANDBY, NULL );
+#endif
 	return PM_NONE;
     case XF86_APM_SYS_SUSPEND:
     case XF86_APM_CRITICAL_SUSPEND:
     case XF86_APM_USER_SUSPEND:
+#if 0
 	if (ioctl( fd, APM_IOC_SUSPEND, NULL ) == 0)
             return PM_WAIT;
         else
+#endif
             return PM_NONE;
     case XF86_APM_STANDBY_RESUME:
     case XF86_APM_NORMAL_RESUME:
@@ -110,9 +119,13 @@ lnxPMConfirmEventToOs(int fd, pmEvent event)
     }
 }
 
+#endif
+
+
 PMClose
 xf86OSPMOpen(void)
 {
+#if 0
    int fd;    
 
 #ifdef DEBUG
@@ -137,12 +150,15 @@ xf86OSPMOpen(void)
        return lnxCloseAPM;
    }
    xf86MsgVerb(X_WARNING,3,"Open APM failed\n");
+#endif
    return NULL;
 }
 
 static void
 lnxCloseAPM(void)
 {
+
+#if 0
     int fd;
     
 #ifdef DEBUG
@@ -153,5 +169,6 @@ lnxCloseAPM(void)
 	close(fd);
 	APMihPtr = NULL;
     }
+#endif
 }
 

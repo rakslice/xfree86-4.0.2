@@ -1,7 +1,7 @@
 /* $XFree86: xc/programs/Xserver/hw/xfree86/os-support/int10Defines.h,v 1.1 2000/01/23 04:44:35 dawes Exp $ */
 #ifdef _VM86_LINUX
 
-#include <asm/vm86.h>
+#include <sys/vm86.h>
 
 #define CPU_R(type,name) \
         (*((type *)&(((struct vm86_struct *)REG->cpuRegs)->regs.##name)))

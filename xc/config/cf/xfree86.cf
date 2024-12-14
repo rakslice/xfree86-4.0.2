@@ -206,11 +206,13 @@ XCOMM $TOG: xfree86.cf /main/38 1997/10/22 13:01:59 kaleb $
 #  endif
 # endif
 
+/* rak: removed from below:  apm */
+
 /* Pure PCI drivers should go first */
 # ifndef XF86CardDrivers
 #  define XF86CardDrivers	mga glint nv tga s3virge sis rendition \
 				neomagic i740 tdfx savage \
-				cirrus tseng trident chips apm \
+				cirrus tseng trident chips \
 				GlideDriver fbdev i128 \
 				ati AgpGartDrivers DevelDrivers ark cyrix \
 				siliconmotion \

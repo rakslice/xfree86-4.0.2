@@ -18,7 +18,7 @@
 #include "xf86str.h"
 
 
-#include <asm/ioctl.h>		/* _IORW(xxx) #defines are here */
+#include <linux/ioctl.h>		/* _IORW(xxx) #defines are here */
 #if 0
 typedef unsigned long ulong;
 #endif

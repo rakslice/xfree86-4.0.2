@@ -604,8 +604,11 @@ vfbBlockHandler(blockData, pTimeout, pReadmask)
     for (i = 0; i < vfbNumScreens; i++)
     {
 #ifdef MS_ASYNC
+#if 0
 	if (-1 == msync((caddr_t)vfbScreens[i].pXWDHeader,
 			(size_t)vfbScreens[i].sizeInBytes, MS_ASYNC))
+#endif
+	if (0)
 #else
 	/* silly NetBSD and who else? */
 	if (-1 == msync((caddr_t)vfbScreens[i].pXWDHeader,
